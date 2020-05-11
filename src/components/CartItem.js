@@ -1,4 +1,5 @@
 import React from "react";
+import trash from '../trash.svg';
 
 export default function CartItem({item,value}) {
   const {id,title,img,price,total,count} = item;
@@ -14,7 +15,7 @@ export default function CartItem({item,value}) {
       </div>
       <div className="col-10 mx-auto col-lg-2">
       <span className="d-lg-none">price:</span>
-      {price}
+      ₱ {price}
       </div>
       <div className="col-10 mx-auto col-lg-2 my-2 my-lg-0">
        <div className="d-flex justify-content-center">
@@ -28,7 +29,7 @@ export default function CartItem({item,value}) {
       {/* */}
       <div className="col-10 mx-auto col-lg-2">
        <div className="cart-icon" onClick={() => removeitem(id)}>
-        <i className="fa fa-trash" />
+        <i><img src={trash} alt="store" className="navbar-brand"/></i>
        </div>
       </div>
       <div className="col-10 mx-auto col-lg-2">

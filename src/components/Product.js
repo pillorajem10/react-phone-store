@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import {ProductConsumer} from "../context";
 import PropTypes from "prop-types";
+import shop from '../shop.svg';
 
 export default class Product extends Component{
   render(){
@@ -13,7 +14,7 @@ export default class Product extends Component{
 <ProductConsumer>
 {(value)=>(
 
-  <div className="img-container p-5" onClick={() =>value.handleDetail(id)
+  <div className="img-container  p-5" onClick={() =>value.handleDetail(id)
   }>
   <Link to="/details">
   <img src={img} alt="product" className="card-img-top"></img>
@@ -21,7 +22,7 @@ export default class Product extends Component{
   <button className="cart-btn" disabled={inCart?true:false} onClick={()=>{ value.addToCart(id);
     value.openModal(id);
   }}>
-  {inCart?(<p className="text-capitalize mb-0" disabled>{""}in cart</p>):(<i class="fa fa-shopping-cart"></i>)}
+  {inCart?(<p className="text-capitalize mb-0" disabled>{""}in cart</p>):(<i><img src={shop} alt="store" className="navbar-brand"/>Add to cart</i>)}
   </button>
   </div>
 
@@ -29,10 +30,10 @@ export default class Product extends Component{
 </ProductConsumer>
         {/* card footer */}
         <div className="card-footer d flex justify-content-between">
-          <p className="align-self-center mb-0">
+          <p className="text-black align-self-center mb-0">
             {title}
           </p>
-          <h5 className="text-blue font-italic mb-0">
+          <h5 className="text-black font-italic mb-0">
           <span className="mr-1">₱</span>
           {price}
           </h5>
@@ -60,8 +61,9 @@ const ProductWrapper = styled.div`
 }
 
 .card-footer{
+  border:solid;
+  border-color:black;
   background:transparent;
-  border-top:transparent;
   transition:all 0.5s linear;
 }
 &:hover{
@@ -77,6 +79,8 @@ const ProductWrapper = styled.div`
 .img-container{
   position:relative;
   overflow:hidden;
+  border:solid;
+  border-color:black;
 }
 .card-img-top{
   transition:all 0.5s linear;

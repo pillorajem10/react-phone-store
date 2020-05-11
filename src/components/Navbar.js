@@ -2,33 +2,41 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import logo from '../logo.svg'
 import styled from 'styled-components'
-import {ButtonContainer} from "./Button";
+import {ButtonContainer,ButtonContainerss} from "./Button";
+import shop from '../shop.svg';
+import AboutUs from './AboutUs';
 
 export default class Navbar extends Component{
   render(){
     return (
-    <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5">
+    <NavWrapper className="navbar navbar-expand-sm navbar-dark">
     {/*
     https://www.iconfinder.com/icons/1243689/call_phone_icon
     Creative Commons (Attribution 3.0 Unported);
     https://www.iconfinder.com/Makoto_msk */}
     <Link to='/'>
-  <img src={logo} alt="store" className="navbar-brand"/>
+  <img src={logo} alt="store" className="navbar"/>
     </Link>
        <ul className="navbar-nav align-items-center">
-          <li className="nav-item ml-5">
-            <Link to="/" className="nav-link">
-               products
+       <div className="title">
+       PhoneShop
+       </div>
+          <li className="nav-item">
+          <Link to="/aboutUs" className="nav">
+             About Us
+          </Link>
+            <Link to="/products" className="nav">
+               Shop
             </Link>
           </li>
        </ul>
        <Link to='/cart' className="ml-auto">
-         <ButtonContainer>
+         <ButtonContainerss>
          <span className="mr-2">
-            <i className="fa fa-cart-plus"></i>
+            <i><img src={shop} alt="store" className="navbar-brand"/></i>
              My cart
           </span>
-         </ButtonContainer>
+         </ButtonContainerss>
        </Link>
     </NavWrapper>
     );
@@ -37,15 +45,13 @@ export default class Navbar extends Component{
 
 
 const NavWrapper = styled.nav`
-background:var(--mainYellow);
+background:black;
 .nav-link{
-   color: var(--mainDark) !important;
+   color:black;
    font-size:1.5rem;
-   text-transform:capitalize !important;
-   &:hover{
-     background:var(--mainWhite);
-     color:var(--mainWhite);
-   }
 }
-
+.nav-link:hover{
+  color:var(--mainWhite);
+  background:white;
+}
 `;
